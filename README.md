@@ -1,7 +1,7 @@
-# Deep Learning (CS6401) - Assignment 2
+# Deep Learning (CS6401) - Assignment 2 Part A
 
 ## 🧠 CNN Assignment – iNaturalist Dataset  
-**Course:** Deep Learning  
+**Student info:** Shreyas Rathod (CS24M046)  
 **Objective:**  
 1. Build and train a CNN model **from scratch**  
 2. Tune hyperparameters using **W&B Sweeps**  

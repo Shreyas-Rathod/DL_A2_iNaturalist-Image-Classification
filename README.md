@@ -104,21 +104,5 @@ Using the **best model checkpoint** from our sweep, we evaluated performance on 
 
 ---
 
-## 🧠 Summary
-
-| Part | Task | Marks |
-|------|------|-------|
-| Q1 | Build a flexible CNN model | 5 |
-| Q2 | Train with sweep and hyperparameter tuning | 15 |
-| Q3 | Analyze sweep results and log insights | 15 |
-| Q4 | Evaluate best model on test set and visualize | 5 |
-
----
-
 ## 🔗 Report
 
-
-
----
-
-Let me know if you'd like this exported as `README.md` file or want to attach the image samples into folders for GitHub display!

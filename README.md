@@ -1,4 +1,7 @@
-## 🧠 CNN Assignment (Part A) – iNaturalist Dataset  
+# Deep Learning (CS6401) - Assignment 2
+
+
+## 🧠 CNN Assignment – iNaturalist Dataset  
 **Course:** Deep Learning  
 **Objective:**  
 1. Build and train a CNN model **from scratch**  

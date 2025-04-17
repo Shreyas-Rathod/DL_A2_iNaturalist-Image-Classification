@@ -1,7 +1,5 @@
 # Deep Learning (CS6401) - Assignment 2
 
----
-
 ## 🧠 CNN Assignment – iNaturalist Dataset  
 **Course:** Deep Learning  
 **Objective:**  

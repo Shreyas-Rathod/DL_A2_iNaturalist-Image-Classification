@@ -1,4 +1,4 @@
-# 🌿 iNaturalist Image Classification  
+# iNaturalist Image Classification  
 ### (DA6401) Deep Learning Assignment 2 – Train from Scratch + Fine-tune Pretrained Models  
 
 ---

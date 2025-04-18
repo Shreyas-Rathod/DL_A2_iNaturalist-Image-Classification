@@ -7,7 +7,7 @@ Made with ❤️ by **Shreyas Rathod (CS24M046)**
 **Course Instructor** : Mitesh Khapra
 
 ---
-## 🧠 Objective  
+## Objective  
 This assignment explores two approaches for image classification using a subset of the [iNaturalist 12K dataset](https://storage.googleapis.com/wandb_datasets/nature_12K.zip):  
 - **Part A:** Train a custom CNN from scratch  
 - **Part B:** Fine-tune a pretrained model (e.g., ResNet50)  
@@ -48,7 +48,7 @@ We tuned:
 
 ---
 
-## 🧠 Part B – Fine-tuning Pretrained ResNet50  
+## 📦 Part B – Fine-tuning Pretrained ResNet50  
 
 ### ✅ Q1: Adjustments  
 - Resized inputs to **224×224**  

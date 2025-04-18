@@ -90,6 +90,8 @@ Tried 3 approaches:
 | `README.md` | This summary |
 
 ---
+## 📁 Wandb Report
 
+---
 ## 🏁 Final Thoughts  
 > **Transfer learning with strategic layer freezing provides a huge boost in accuracy, stability, and training speed—especially when data is limited.**

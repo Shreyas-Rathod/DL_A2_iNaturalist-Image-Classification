@@ -84,8 +84,8 @@ Tried 3 approaches:
 | File | Description |
 |------|-------------|
 | `CNN_Model.py` / `TrainLoop_wandb.py` | Custom CNN definition & trainer |
-| `finetune_resnet.py` | Fine-tunes ResNet50 |
-| `finetune_sweep.py` | W&B sweep over freezing strategies |
+| `FineTunes_ResNet50.py` | Fine-tunes ResNet50 |
+| `SweepFreeze.py` | W&B sweep over freezing strategies |
 | `final_eval_plots.py` | Final test evaluation & visualization |
 | `README.md` | This summary |
 

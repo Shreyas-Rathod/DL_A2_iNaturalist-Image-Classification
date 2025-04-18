@@ -91,9 +91,8 @@ Compared to Part A (scratch-trained CNN with ~40% val accuracy), our fine-tuned 
 
 | File | Description |
 |------|-------------|
-| `finetune_resnet.py` | Fine-tunes ResNet50 with W&B logging |
+| `Question1.py` | Fine-tunes ResNet50 with W&B logging |
 | `Question3.py` | Runs sweep across freezing strategies |
-| `partB_eval.ipynb` | Final model eval and sample predictions |
 | `README.md` | This file |
 
 ---

@@ -83,10 +83,10 @@ Tried 3 approaches:
 ## 📂 Key Files  
 | File | Description |
 |------|-------------|
-| `Question1.py` / `Question2.py` | Custom CNN definition & trainer |
+| `CNN_Model.py` / `TrainLoop_wandb.py` | Custom CNN definition & trainer |
 | `finetune_resnet.py` | Fine-tunes ResNet50 |
 | `finetune_sweep.py` | W&B sweep over freezing strategies |
-| `evaluate.py` | Final test evaluation & visualization |
+| `final_eval_plots.py` | Final test evaluation & visualization |
 | `README.md` | This summary |
 
 ---

@@ -1,109 +1,118 @@
-# Deep Learning (CS6401) - Assignment 2 Part A
-
-## 🧠 CNN Assignment – iNaturalist Dataset  
-**Student info:** Shreyas Rathod (CS24M046)  
-**Objective:**  
-1. Build and train a CNN model **from scratch**  
-2. Tune hyperparameters using **W&B Sweeps**  
-3. Analyze the results  
-4. Evaluate the **best model** on unseen test data  
+## 🧠 Part A – Training a CNN from Scratch
 
 ---
 
-## 📁 Dataset  
-We used a **subset of the [iNaturalist 12K dataset](https://storage.googleapis.com/wandb_datasets/nature_12K.zip)**.  
-The dataset was structured as:
+### 📌 Objective
 
-```
-inaturalist_12K/
-├── train/        # Used for training + validation (80/20 split)
-└── val/          # Used only for final testing
-```
+The goal of Part A is to:
+- Build a **custom CNN model** from scratch  
+- Tune its hyperparameters using **W&B Sweeps**  
+- Analyze performance and generalization  
+- Compare training dynamics across configurations
 
----
-
-## 🚀 Q1 – Model Architecture from Scratch (5 Marks)
-
-We implemented a configurable CNN with:
-- **5 convolution blocks** (Conv → Activation → MaxPool)
-- Support for **customizable**:  
-  - filter size  
-  - number of filters  
-  - activation function (ReLU, GELU, SiLU...)  
-  - dense layer size
-
-The model ends with:
-- 1 fully-connected dense layer  
-- 1 output layer with 10 neurons (1 per class)
-
-📌 Also included:
-- Code to compute **total number of computations and parameters** given input image size and layer specs.
+We used a subset of the **iNaturalist 12K dataset** with 10 classes.
 
 ---
 
-## 🧪 Q2 – Training + Hyperparameter Tuning with W&B Sweeps (15 Marks)
+### 🧱 Q1 – CNN Model Implementation (5 Marks)
 
-We trained the CNN model using:
-- 80% of `train/` for training
-- 20% of `train/` for validation  
-*(using stratified split to preserve class balance)*
+We designed a modular CNN architecture with:
 
-We used **Weights & Biases (W&B) Sweeps** to find the best configuration by exploring:
-- `num_filters`: 32, 64
-- `activation`: ReLU, GELU, SiLU
-- `num_dense_neurons`: 128, 256
-- `dropout`: 0.0, 0.2, 0.3
-- `batch_norm`: True, False
-- `lr`: 0.001, 0.0005
+- **5 convolutional blocks**:  
+  Each block = `Conv2D → Activation → MaxPool`
+- **Configurable hyperparameters**:  
+  - Filter size  
+  - Number of filters  
+  - Activation function (ReLU, GELU, SiLU...)  
+  - Number of dense units
 
-🔁 Strategy:
-- Used **Bayesian Optimization** to reduce total runs  
-- Tracked val accuracy using W&B dashboards
+Final structure:
+- 1 hidden `Linear` (dense) layer  
+- 1 output layer with 10 neurons
 
-📊 Required plots (logged via wandb):
-- Accuracy vs. Run (Created)
-- Parallel Coordinates Plot
-- Correlation Summary Table
+✅ Also included:
+- Code to calculate **total number of parameters**
+- Estimation of **computational cost** (MACs)
 
 ---
 
-## 📈 Q3 – Observations from Sweep Results (15 Marks)
+### 🧪 Q2 – Training & Hyperparameter Tuning (15 Marks)
 
-Based on our W&B visualizations and CSV export from sweep logs, we observed:
+We split the dataset as:
+- **80%** for training  
+- **20%** from `train/` used for validation  
+- Test data (`val/` folder) untouched for now
 
-✔️ **Batch Normalization** gives ~9% boost in accuracy on average  
-✔️ Starting with **32 filters and doubling later** works better than starting with 64/128  
-✔️ **ReLU** consistently outperforms GELU and SiLU in this shallow setting  
-✔️ Dropout around **0.2–0.3** is stabilizing, but heavy dropout is not always best with BN  
-✔️ **1e-3 learning rate** gave best results; lower rates underfit in our experiments  
-✔️ Wider dense layers (256 vs 128) gave marginal boost (<1%)  
+We used **Weights & Biases (W&B)** to run a sweep over:
 
----
+| Hyperparameter | Values Tried |
+|----------------|--------------|
+| `num_filters` | 32, 64 |
+| `activation` | ReLU, GELU, SiLU |
+| `dropout` | 0.0, 0.2, 0.3 |
+| `num_dense_neurons` | 128, 256 |
+| `batch_norm` | True, False |
+| `lr` | 1e-3, 5e-4 |
 
-## 🧪 Q4 – Evaluation on Test Set (5 Marks)
+📊 W&B Automatically Logged:
+- Accuracy vs Epochs  
+- Correlation Summary Table  
+- Parallel Coordinates Plot  
 
-Using the **best model checkpoint** from our sweep, we evaluated performance on the **unseen test set** (`val/` folder).
-
-✅ Logged to W&B:
-- ✅ Test accuracy  
-- ✅ 10×3 image grid of predictions (green = correct, red = wrong)  
-- ✅ 8×8 grid of first-layer filters  
-- ✅ 10×1 Guided Backprop visualizations
-
-📌 Notes:
-- Model was never trained or tuned on test set  
-- Guided backprop used Captum and predicted class as the target for visualization
-
----
-
-## 🛠️ Environment & Tools
-
-- PyTorch + Torchvision
-- W&B for logging and sweeps
-- Captum for interpretability
-- Python 3.10+
-- Ran on Kaggle GPU Notebook
+✅ Strategy:
+- Used **Bayesian sweep** to reduce experiments while maximizing performance.
 
 ---
 
-## 🔗 Report
+### 📈 Q3 – Observations from Sweep (15 Marks)
+
+Key insights from 39 sweep runs:
+
+- ✅ **BatchNorm ON** consistently improved accuracy (~9% higher)
+- ✅ **Starting with 32 filters** performed better than 64/128/512
+- ✅ **ReLU** outperformed GELU & SiLU in this architecture
+- ✅ Best dropout for stability was around **0.2–0.3**
+- ❌ Models with **too many filters in early layers** overfit easily
+- ✅ LR = **1e-3** was effective; 5e-4 was too slow for convergence
+
+---
+
+### 🧪 Q4 – Test Evaluation & Visualizations (5 Marks)
+
+We selected the **best model** from the sweep and evaluated it on the **unseen test set** (`val/` folder).
+
+✅ Final Test Accuracy: **~40%**  
+✅ Logged in W&B:
+- 10×3 grid of test images with predictions  
+- First-layer filters (8×8 grid)  
+- Guided backprop (top 10 activations from CONV5)
+
+---
+
+### 🔗 Files & Notebooks
+
+| File | Description |
+|------|-------------|
+| `model.py` | Custom CNN model definition |
+| `train.py` | Training loop with wandb sweep support |
+| `evaluate.py` | Final evaluation + plots |
+| `sweep_config.yaml` | W&B sweep configuration |
+| `README.md` | This file |
+
+---
+
+### 🛠️ Tools Used
+
+- PyTorch + Torchvision  
+- W&B for experiment tracking  
+- Captum (optional) for interpretability  
+- Kaggle GPU for training  
+
+---
+
+### 🏁 Summary
+
+Part A demonstrated that:
+- A small CNN can learn basic patterns with careful tuning  
+- Hyperparameter sweeps reveal valuable insights  
+- But pretrained models (see Part B) outperform scratch models on small datasets

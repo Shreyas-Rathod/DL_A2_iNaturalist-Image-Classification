@@ -2,7 +2,8 @@
 ### Deep Learning Assignment – Train from Scratch + Fine-tune Pretrained Models  
 
 ---
-Made by **Shreyas Rathod (CS24M046)**
+Made with ❤️ by **Shreyas Rathod (CS24M046)**
+**Course Instructor** : Mitesh Khapra
 
 ---
 ## 🧠 Objective  

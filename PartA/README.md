@@ -93,9 +93,9 @@ We selected the **best model** from the sweep and evaluated it on the **unseen t
 
 | File | Description |
 |------|-------------|
-| `Question1.py` | Custom CNN model definition |
-| `Question2.py` | Training loop with wandb sweep support |
-| `Question3.py` | Final evaluation + plots |
+| `CNN_Model.py` | Custom CNN model definition |
+| `TrainLoop_wandb.py` | Training loop with wandb sweep support |
+| `Final_eval_plots.py` | Final evaluation + plots |
 | `README.md` | This file |
 
 ---

@@ -1,5 +1,5 @@
 # 🌿 iNaturalist Image Classification  
-### Deep Learning Assignment 2 – Train from Scratch + Fine-tune Pretrained Models  
+### (DA6401) Deep Learning Assignment 2 – Train from Scratch + Fine-tune Pretrained Models  
 
 ---
 **Student Info : Shreyas Rathod (CS24M046)**

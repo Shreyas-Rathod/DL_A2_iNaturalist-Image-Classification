@@ -2,7 +2,7 @@
 ### Deep Learning Assignment 2 – Train from Scratch + Fine-tune Pretrained Models  
 
 ---
-Made with ❤️ by **Shreyas Rathod (CS24M046)**
+**Student Info : Shreyas Rathod (CS24M046)**
 
 **Course Instructor** : Mitesh Khapra
 
@@ -75,7 +75,7 @@ Tried 3 approaches:
 
 ---
 
-## 🧪 Tools & Libraries  
+## 📂 Tools & Libraries  
 - `PyTorch`, `torchvision`, `wandb`, `captum`, `Kaggle GPU`
 
 ---
@@ -83,7 +83,7 @@ Tried 3 approaches:
 ## 📂 Key Files  
 | File | Description |
 |------|-------------|
-| `model.py` / `train.py` | Custom CNN definition & trainer |
+| `Question1.py` / `Question2.py` | Custom CNN definition & trainer |
 | `finetune_resnet.py` | Fine-tunes ResNet50 |
 | `finetune_sweep.py` | W&B sweep over freezing strategies |
 | `evaluate.py` | Final test evaluation & visualization |

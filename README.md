@@ -2,7 +2,9 @@
 ### Deep Learning Assignment – Train from Scratch + Fine-tune Pretrained Models  
 
 ---
+Made by **Shreyas Rathod (CS24M046)**
 
+---
 ## 🧠 Objective  
 This assignment explores two approaches for image classification using a subset of the [iNaturalist 12K dataset](https://storage.googleapis.com/wandb_datasets/nature_12K.zip):  
 - **Part A:** Train a custom CNN from scratch  
